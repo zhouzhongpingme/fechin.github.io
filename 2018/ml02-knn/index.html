@@ -59,7 +59,7 @@
 
         </div>
         <div class="content markdown">
-            <p><img src="http://odwjyz4z6.bkt.clouddn.com/ml02/knnheader.png" alt="kNN algorithm"></p>
+            <p><img src="/static/images/ml02/knnheader.png" alt="kNN algorithm"></p>
 <h4 id="什么是-k-近邻算法"><a href="#什么是-k-近邻算法" class="headerlink" title="什么是 k 近邻算法"></a>什么是 k 近邻算法</h4><p>k 近邻（k-Nearest Neighbor，kNN）是机器学习中相对简单且容易理解的算法，是分类数据最简单有效的算法，它基于实例学习，我们必须用最真实的样本数据对模型进行训练，以便预测出的结果更具参考意义。</p>
 <p>简单地说，<strong>k 近邻算法采用测量不同特征值之间的距离方法进行分类</strong>。这句话简单也不简单。更通俗易懂的理解，所谓“物以类聚，人以群分”，kNN 认为彼此相隔最近的点为一类。周围的对象是什么类别，我就是什么类别。如果你的朋友都开法拉利、保时捷等跑车，那么在 kNN 眼你，你也是有钱人，也开豪车。</p>
 <h4 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h4><p>本文不打算用代码实现一个 k 近邻算法，感兴趣的可以查阅资料研究其实现，但我们必须知道算法的实现步骤。</p>
@@ -73,7 +73,7 @@
 </ol>
 </blockquote>
 <p>接下来，举个栗子带大家更好的理解 kNN 算法。如图，有黄色的管理人才，深蓝色的架构师，以及未知的天蓝色。</p>
-<p><img src="http://odwjyz4z6.bkt.clouddn.com/ml02/kNNsample.jpg" alt="kNN Sample"></p>
+<p><img src="/static/images/ml02/kNNsample.jpg" alt="kNN Sample"></p>
 <p>当我们需要对员工进行技术和管理两个培养方向分类时，可能会考虑到他们的情商、沟通、技能、协作、远见、解决问题等能力。由于人类大脑的限制，我们只能处理三维以下的事务，这里只列举两个特征“情商”和“技能”评分，假设情商分高可作为管理人才来培养，技能分高作为架构师人才来培养。</p>
 <p>我们拿到了七个样本数据，每一个样本带有情商和技能特征，以及对应的标签，他们分布在图中的数据如下：</p>
 <table>
@@ -127,7 +127,7 @@
 </tr>
 </tbody>
 </table>
-<p>现在的需求是通过天蓝色的特征值预测他更适合的培养方向，按照 kNN 算法的实现步骤，计算出天蓝色特征与样本集的距离。计算二维平面上两点 a(x1,y1) 与 b(x2,y2) 间的欧氏距离<br><img src="http://odwjyz4z6.bkt.clouddn.com/ml02/EuclideanDistanceGraphic01.jpg" alt="Euclidean Distance"></p>
+<p>现在的需求是通过天蓝色的特征值预测他更适合的培养方向，按照 kNN 算法的实现步骤，计算出天蓝色特征与样本集的距离。计算二维平面上两点 a(x1,y1) 与 b(x2,y2) 间的欧氏距离<br><img src="/static/images/ml02/EuclideanDistanceGraphic01.jpg" alt="Euclidean Distance"></p>
 <p>按距离升序排序之后结果如下：</p>
 <table>
 <thead>
@@ -192,7 +192,7 @@
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
-                <source type="audio/mpeg" src="http://oybheyjxt.bkt.clouddn.com/%E6%80%80%E5%BF%B5%E9%9D%92%E6%98%A5.mp3">
+                <source type="audio/mpeg" src="/static/mp3/%E6%80%80%E5%BF%B5%E9%9D%92%E6%98%A5.mp3">
             </audio>
             
         </div>

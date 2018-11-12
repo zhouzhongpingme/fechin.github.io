@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>常也 - 像初雪一样自由洒落</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    
+    <meta name="author" content="Fechin"> 
+    <link rel="alternative" href="atom.xml" title="常也" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-2373395777996480",
+        enable_page_level_ads: true
+      });
+    </script>
+</head>
+
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle"></h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title"></h1>
+        <div class="stuff">
+            <span>十一月 04, 2018</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <hr>
+<p>title: Linux一<br>date: 2018-11-02 21:59:45</p>
+<h2 id="tags-linux"><a href="#tags-linux" class="headerlink" title="tags:linux"></a>tags:linux</h2><p>##stat</p>
+<p><code>[root@vultr lesson4]# stat temp
+  File: ‘temp’
+  Size: 8656          Blocks: 24         IO Block: 4096   regular file
+Device: fd01h/64769d    Inode: 384003      Links: 1
+Access: (0755/-rwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-10-12 18:28:11.450510618 +0800
+Modify: 2018-10-12 18:27:56.579434961 +0800
+Change: 2018-10-12 18:27:56.579434961 +0800
+ Birth: -</code></p>
+<p>可以看到这个文件的详细信息。</p>
+<p>##ls -ai (all inodes)</p>
+<pre><code>[root@vultr lesson4]# ls -ai
+384002 .  384001 ..  384004 1.c  384003 temp  384005 tempfile.c
+</code></pre><p>##ls -l</p>
+<pre><code>[root@vultr etc]# ls -l
+total 1364
+-rw-r--r--  1 root root        4 Oct 19 11:32 aa.txt
+-rw-r--r--  1 root root       16 Jun  6 05:42 adjtime
+-rw-r--r--  1 root root     1518 Jun  7  2013 aliases
+-rw-r--r--  1 root root    12288 Jun  6 05:45 aliases.db
+drwxr-xr-x  2 root root     4096 Jul 21 06:38 alternatives
+-rw-------  1 root root      541 Apr 11  2018 anacrontab
+-rw-r--r--  1 root root       55 Apr 11  2018 asound.conf
+</code></pre><p>第一段块设备器或字符设备器<br>第二段属主的权限，属主所在的组的权限，其他用户的权限<br>第三段属主<br>第四段属主所在的组<br>第五段时间<br>第六段文件名</p>
+<p>##cp /linux/lesson4/1.c /dev/console</p>
+<p>##cp /linux/lesson4/1.c /dev/stdout</p>
+<p>这两命令需要一起讲</p>
+<pre><code>[root@vultr dev]# cp /linux/lesson4/1.c /dev/console
+cp: overwrite ‘/dev/console’? y
+[root@vultr dev]# cp /linux/lesson4/1.c /dev/stdout
+cp: overwrite ‘/dev/stdout’? y
+</code></pre><pre><code>#include&lt;stdio.h&gt;
+
+int main()
+{
+    int i;
+    char *s();
+    char ru[100];
+    srand(time(NULL));
+
+    for(int j=0;j&lt;100;j++)
+    {
+        i=rand()%4+97;
+        ru[j]=(char)i;
+
+        printf(&quot;%c\n&quot;,ru[j]);
+    }
+    s=ru;
+    return 0;
+
+}
+</code></pre><p>##st_mode</p>
+<p>##umask</p>
+<p>##echo “hello,markdown!!!” &gt; test.txt</p>
+<p>##chown</p>
+<p>##chmod</p>
+<p>##access</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                    
+                        <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='a396afe529734b15300f'
+        data-cs='0ae7c1790f9a5cbc2b7339c12a82d58fe58f9567'
+        data-r='fechin.github.io'
+        data-o='Fechin'
+        data-a='Fechin'
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-69833742-2', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+</html>

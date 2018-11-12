@@ -59,7 +59,7 @@
 
         </div>
         <div class="content markdown">
-            <p><img src="http://odwjyz4z6.bkt.clouddn.com/PandasToSparkDataFrame/pyspark-pandas_cover5.jpg" alt="Pandas to PySpark"></p>
+            <p><img src="/static/images/PandasToSparkDataFrame/pyspark-pandas_cover5.jpg" alt="Pandas to PySpark"></p>
 <p>Pandas DataFrame 是一个二维数组，跟数据库中的 Table 或 Excel 很相似，底层使用 Numpy 和 array 存储，Numpy 使用 C 语言编写，运行速度很快。在 Python 语言中，它们是必不可少的机器学习库。</p>
 <p>因为 Pandas 的高效，实际开发中，我更多的会借助它做抽样数据分析，然而生产环境的数据量巨大，需要集群部署，所以生产环境用 Spark 全量运行。Spark 和 Pandas 都可以集成 SQL 能力，但它们支持的 SQL 规范不一致，为保持操作统一，我们可能会选择其中的一种规范，也就有了 Pandas 和 PySpark 数据结构的转换需求。</p>
 <h4 id="PySpark-DataFrame-转-Pandas-DataFrame"><a href="#PySpark-DataFrame-转-Pandas-DataFrame" class="headerlink" title="PySpark DataFrame 转 Pandas DataFrame"></a>PySpark DataFrame 转 Pandas DataFrame</h4><p>获取或创建 SparkSession</p>
@@ -78,8 +78,8 @@
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">n_rows = <span class="number">500000</span></span><br><span class="line">pdf = pd.DataFrame(np.random.randn(n_rows, <span class="number">20</span>))</span><br><span class="line">%time spf = sqlContext.createDataFrame(pdf)</span><br><span class="line"></span><br><span class="line">CPU times: user <span class="number">1</span>min <span class="number">32</span>s, sys: <span class="number">1.08</span> s, total: <span class="number">1</span>min <span class="number">33</span>s</span><br><span class="line">Wall time: <span class="number">1</span>min <span class="number">37</span>s</span><br></pre></td></tr></table></figure>
 <p>当 Pandas DataFrame 行数为 n_rows ，列固定 20 ，将其转换为 PySpark DataFrame 耗时如下：</p>
-<p><img src="http://odwjyz4z6.bkt.clouddn.com/PandasToSparkDataFrame/PandasToSparkDataFrame_withoutarrow_mini.jpg" alt="PySpark to Pandas"><br>随着行数的增加，越来越耗时，100w 条数据时耗时已经超过 200 秒，笔者也测试了从 PySpark DataFrame 到 Pandas DataFrame 的转换，耗时基本一致，时间都去哪儿了？</p>
-<h4 id="PySpark-实现原理"><a href="#PySpark-实现原理" class="headerlink" title="PySpark 实现原理"></a>PySpark 实现原理</h4><p>Spark 是由 JVM 语言实现，并且程序会运行在 JVM 之上，无论是 Python、R 还是其它语言实现的 Spark，都会间接的和 JVM 进行通信，获得处理海量数据的能力。<br><img src="http://odwjyz4z6.bkt.clouddn.com/PandasToSparkDataFrame/PySpark2_mini.jpg" alt="Pandas to PySpark"></p>
+<p><img src="/static/images/PandasToSparkDataFrame/PandasToSparkDataFrame_withoutarrow_mini.jpg" alt="PySpark to Pandas"><br>随着行数的增加，越来越耗时，100w 条数据时耗时已经超过 200 秒，笔者也测试了从 PySpark DataFrame 到 Pandas DataFrame 的转换，耗时基本一致，时间都去哪儿了？</p>
+<h4 id="PySpark-实现原理"><a href="#PySpark-实现原理" class="headerlink" title="PySpark 实现原理"></a>PySpark 实现原理</h4><p>Spark 是由 JVM 语言实现，并且程序会运行在 JVM 之上，无论是 Python、R 还是其它语言实现的 Spark，都会间接的和 JVM 进行通信，获得处理海量数据的能力。<br><img src="/static/images/PandasToSparkDataFrame/PySpark2_mini.jpg" alt="Pandas to PySpark"></p>
 <p>Python 借助 Py4j 实现和 Java 的交互，一个 PySpark 程序启动时，会实例化 Python 版的 SparkContext 对象，这也是一个比较耗时的过程，其内部实现：</p>
 <ol>
 <li>实例化 Py4j GatewayClient，连接 JVM 中的 Py4j GatewayServer</li>
@@ -101,12 +101,12 @@
 <li>使用 Spark schema 包装 JavaRDD 并创建 DataFrame</li>
 </ol>
 <p>代码实现：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 也可以在 spark-defaults.conf 全局配置</span></span><br><span class="line">spark.conf.set(<span class="string">"spark.sql.execution.arrow.enabled"</span>, <span class="string">"true"</span>)</span><br><span class="line"></span><br><span class="line">spf = spark.createDataFrame(pdDF)</span><br></pre></td></tr></table></figure></p>
-<p>如图，使用 Arrow 之后，测试 100w 条数据仅仅用了 1.2 秒<br><img src="http://odwjyz4z6.bkt.clouddn.com/PandasToSparkDataFrame/PandasToSparkDataFrame_witharrow_mini.jpg" alt="PySpark to Pandas"></p>
-<p>跟不使用 Arrow 相比，差得不是一点半点啊，下图中的红线是使用 Arrow 的耗时，基本与 X 轴重合了，这么高的反差，笔者感到很惊讶。<br><img src="http://odwjyz4z6.bkt.clouddn.com/PandasToSparkDataFrame/PandasToSparkDataFrame_twoline_mini.jpg" alt="PySpark to Pandas"></p>
+<p>如图，使用 Arrow 之后，测试 100w 条数据仅仅用了 1.2 秒<br><img src="/static/images/PandasToSparkDataFrame/PandasToSparkDataFrame_witharrow_mini.jpg" alt="PySpark to Pandas"></p>
+<p>跟不使用 Arrow 相比，差得不是一点半点啊，下图中的红线是使用 Arrow 的耗时，基本与 X 轴重合了，这么高的反差，笔者感到很惊讶。<br><img src="/static/images/PandasToSparkDataFrame/PandasToSparkDataFrame_twoline_mini.jpg" alt="PySpark to Pandas"></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
-                <source type="audio/mpeg" src="http://oybheyjxt.bkt.clouddn.com/That%20Girl.mp3">
+                <source type="audio/mpeg" src="/static/mp3/That%20Girl.mp3">
             </audio>
             
         </div>
