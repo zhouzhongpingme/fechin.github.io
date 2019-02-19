@@ -68,7 +68,7 @@ var Diaspora = {
     HS: function(tag, flag) {
         var id = tag.data('id') || 0,
             url = tag.attr('href'),
-            title = tag.attr('title') || tag.text();
+            title = tag.attr('title') + " - " + $("#config-title").text();
         if (!$('#preview').length || !(window.history && history.pushState)) location.href = url;
         Diaspora.loading()
         var state = {d: id, t: title, u: url};
@@ -355,8 +355,10 @@ $(function() {
                 if ($('#preview').hasClass('show')) {
                     history.back();
                 } else {
-                    location.href = "/";
+                    var url = $('.icon-home').data('url')
+                    window.location.replace(url)
                 }
+                return false;
                 break;
             // qrcode
             case (tag.indexOf('icon-scan') != -1):
