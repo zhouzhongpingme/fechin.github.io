@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>常也 - 像初雪一样自由洒落</title>
-
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
@@ -19,21 +18,25 @@
     <link rel="stylesheet" href="/css/diaspora.css">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
-      (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-2373395777996480",
-        enable_page_level_ads: true
-      });
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
     </script>
 </head>
 
 <body class="loading">
+    <span id="config-title" style="display:none">常也</span>
     <div id="loader"></div>
     <div id="single">
     <div id="top" style="display: block;">
     <div class="bar" style="width: 0;"></div>
-    <a class="icon-home image-icon" href="javascript:;"></a>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://fech.in"></a>
     <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle"></h3>
+    <h3 class="subtitle">如何将Excel转换成Markdown表格</h3>
     <div class="social">
         <!--<div class="like-icon">-->
             <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -47,89 +50,43 @@
     </div>
     <div class="scrollbar"></div>
 </div>
+
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title"></h1>
+        <h1 class="title">如何将Excel转换成Markdown表格</h1>
         <div class="stuff">
-            <span>十一月 04, 2018</span>
+            <span>三月 21, 2019</span>
             
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Converter/">Converter</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Excel/">Excel</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Markdown/">Markdown</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Table/">Table</a></li></ul>
+
 
         </div>
         <div class="content markdown">
-            <hr>
-<p>title: Linux一<br>date: 2018-11-02 21:59:45</p>
-<h2 id="tags-linux"><a href="#tags-linux" class="headerlink" title="tags:linux"></a>tags:linux</h2><p>##stat</p>
-<p><code>[root@vultr lesson4]# stat temp
-  File: ‘temp’
-  Size: 8656          Blocks: 24         IO Block: 4096   regular file
-Device: fd01h/64769d    Inode: 384003      Links: 1
-Access: (0755/-rwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
-Access: 2018-10-12 18:28:11.450510618 +0800
-Modify: 2018-10-12 18:27:56.579434961 +0800
-Change: 2018-10-12 18:27:56.579434961 +0800
- Birth: -</code></p>
-<p>可以看到这个文件的详细信息。</p>
-<p>##ls -ai (all inodes)</p>
-<pre><code>[root@vultr lesson4]# ls -ai
-384002 .  384001 ..  384004 1.c  384003 temp  384005 tempfile.c
-</code></pre><p>##ls -l</p>
-<pre><code>[root@vultr etc]# ls -l
-total 1364
--rw-r--r--  1 root root        4 Oct 19 11:32 aa.txt
--rw-r--r--  1 root root       16 Jun  6 05:42 adjtime
--rw-r--r--  1 root root     1518 Jun  7  2013 aliases
--rw-r--r--  1 root root    12288 Jun  6 05:45 aliases.db
-drwxr-xr-x  2 root root     4096 Jul 21 06:38 alternatives
--rw-------  1 root root      541 Apr 11  2018 anacrontab
--rw-r--r--  1 root root       55 Apr 11  2018 asound.conf
-</code></pre><p>第一段块设备器或字符设备器<br>第二段属主的权限，属主所在的组的权限，其他用户的权限<br>第三段属主<br>第四段属主所在的组<br>第五段时间<br>第六段文件名</p>
-<p>##cp /linux/lesson4/1.c /dev/console</p>
-<p>##cp /linux/lesson4/1.c /dev/stdout</p>
-<p>这两命令需要一起讲</p>
-<pre><code>[root@vultr dev]# cp /linux/lesson4/1.c /dev/console
-cp: overwrite ‘/dev/console’? y
-[root@vultr dev]# cp /linux/lesson4/1.c /dev/stdout
-cp: overwrite ‘/dev/stdout’? y
-</code></pre><pre><code>#include&lt;stdio.h&gt;
-
-int main()
-{
-    int i;
-    char *s();
-    char ru[100];
-    srand(time(NULL));
-
-    for(int j=0;j&lt;100;j++)
-    {
-        i=rand()%4+97;
-        ru[j]=(char)i;
-
-        printf(&quot;%c\n&quot;,ru[j]);
-    }
-    s=ru;
-    return 0;
-
-}
-</code></pre><p>##st_mode</p>
-<p>##umask</p>
-<p>##echo “hello,markdown!!!” &gt; test.txt</p>
-<p>##chown</p>
-<p>##chmod</p>
-<p>##access</p>
+            <p><img src="https://tableconvert.com/static/images/cover/excel-to-markdown.jpg" alt="在线将Excel转换为Markdown表格"></p>
+<p>在这篇文章中，我将告诉你如何快速的将Excel转换为markdown表格，以及如何将Google Docs，Numbers，网页中的表格或其他类似Excel的程序数据转换为Markdown表格。</p>
+<p>你可能有许多原因需要Excel表格的Markdown表示法：</p>
+<ol>
+<li>要将Excel内容插入Markdown文章中</li>
+<li>要将Excel内容上传至Github gist</li>
+<li>Excel内容很大，手动转换为Markdown费事，容易出错</li>
+<li>….等等</li>
+</ol>
+<p>在这种情况下，你只需复制Excel工作表，然后将其粘贴到“tableconvert.com”。你可以非常轻松地获得对应的Markdown表格语法，实现一键转换，几乎不需要花费太多时间。</p>
+<p>这是一个教你如何逐步将Excel转换为Markdown语法的最佳指南的视频。 <a href="https://youtu.be/2h0A_ZXLtrM" target="_blank" rel="noopener">去Youtube观看</a></p>
+<h3 id="Excel到Markdown步骤"><a href="#Excel到Markdown步骤" class="headerlink" title="Excel到Markdown步骤"></a>Excel到Markdown步骤</h3><p><strong>步骤1. </strong>首先，使用浏览器打开 <a href="https://tableconvert.com" target="_blank" rel="noopener">https://tableconvert.com</a></p>
+<p><strong>步骤2. </strong>单击菜单栏中的<code>Import</code>按钮，切换到<code>Excel</code>选项卡。在导入窗口中，你可以看到如下提示：</p>
+<blockquote>
+<p>Paste your cells from Excel, Numbers, Google Docs or Browser table</p>
+</blockquote>
+<p><strong>步骤3. </strong>如上所述，从Excel（或其他电子表格程序）复制一系列单元格并将其粘贴到文本框中，单击<code>Import data</code>按钮。</p>
+<p><strong>步骤4. </strong>现在，从Excel复制的内容已导入网站并自动转换为Markdown表格，你只需要确保在输出区域中选择的选项卡是<code>Markdown</code>。</p>
+<p>单击<code>Copy</code>按钮将结果复制到剪贴板。单击<code>Dowuload</code>按钮将Markdown文件下载到本地。拿到对应Excel表格的Markdown后，你可以在文档中使用该文本。</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
-                <source type="audio/mpeg" src="">
+                <source type="audio/mpeg" src="/static/mp3/%E8%B0%AD%E8%8C%9C%20-%20%E5%85%89%E6%98%8E.mp3">
             </audio>
-            
-                <ul id="audio-list" style="display:none">
-                    
-                        <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
-                    
-                        <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
-                    
-                </ul>
             
         </div>
         
